@@ -2,9 +2,10 @@ version: "3.7"
 services:
   api:
     image: ra-challenge-api
-    build: .
+    build:
+      context: ./api
     ports:
-      - 80:8080
+      - 10123:8080
     depends_on:
       - db
   db:
@@ -15,5 +16,4 @@ services:
     ports:
       - 12345:27017
     build:
-      context: ./mongodb
-      dockerfile: Dockerfile-mongodb
+      context: ./database

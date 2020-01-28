@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".devcontainer"
+		},
+		{
+			"path": "api",
+		},
+		{
+			"path": "database",
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
