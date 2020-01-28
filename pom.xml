@@ -15,7 +15,7 @@
 	<description>Implementation for the development challenge proposed by Reclame Aqui / Óbvio Brasil.</description>
 
 	<properties>
-		<java.version>10</java.version>
+		<java.version>13</java.version>
 	</properties>
 
 	<dependencies>

@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  api:
+    environment:
+      JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
+    ports:
+      - 80:8080
+      - 5005:5005
