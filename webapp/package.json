@@ -6,13 +6,23 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "autoprefixer": "^9.7.4",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "tailwindcss": "^1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:styles": "postcss ./src/css-src/_tailwind.css -o src/css/compiled-styles.css",
+    "watch:styles": "postcss --watch ./src/css-src/_tailwind.css -o src/css/compiled-styles.css",
+    "start:server": "react-scripts start",
+    "start": "npm-run-all -p watch:styles start:server",
+    "build:clean": "rimraf ./build ./src/css",
+    "build:react-build": "react-scripts build",
+    "build": "npm-run-all build:clean build:styles build:react-build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
