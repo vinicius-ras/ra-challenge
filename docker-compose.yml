@@ -4,8 +4,6 @@ services:
     image: ra-challenge-api
     build:
       context: ./api
-    ports:
-      - 10123:8080
     depends_on:
       - db
   db:
@@ -13,7 +11,16 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: abc123
       MONGO_INITDB_DATABASE: ra_challenge
-    ports:
-      - 12345:27017
     build:
       context: ./database
+  webapp:
+    image: ra-challenge-webapp
+    environment:
+      NODE_ENV: production
+    build:
+      context: ./webapp
+    ports:
+      - 80:3000
+    depends_on:
+      - db
+      - api

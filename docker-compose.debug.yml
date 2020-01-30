@@ -4,5 +4,14 @@ services:
     environment:
       JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
     ports:
-      - 10123:8080
+      - 8080:8080
       - 5005:5005
+  db:
+    ports:
+      - 10124:27017
+  webapp:
+    environment:
+      NODE_ENV: development
+    ports:
+      - 80:3000
+      - 9229:9229
