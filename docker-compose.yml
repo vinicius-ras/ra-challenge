@@ -24,3 +24,11 @@ services:
     depends_on:
       - db
       - api
+  oidc-provider:
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    environment:
+      ASPNETCORE_Kestrel__Endpoints__Http__Url: http://*:5000
+    ports:
+      - 5000:5000
+    depends_on:
+      - db

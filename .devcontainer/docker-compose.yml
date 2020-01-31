@@ -42,3 +42,6 @@ services:
   webapp:
     volumes:
       - .:/workspace:cached
+  oidc-provider:
+    volumes:
+      - .:/workspace:cached
