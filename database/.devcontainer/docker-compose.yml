@@ -1,16 +1,15 @@
 version: '3.7'
 services:
-  webapp:
-    image: ra-challenge-webapp
+  db:
     build:
       context: ../
+      network: ra-challenge-dev
     environment:
-      NODE_ENV: development
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: abc123
+      MONGO_INITDB_DATABASE: ra_challenge
     ports:
-      - 3000:3000
-      - 9229:9229
-    volumes:
-      - ..:/workspace/webapp:cached
+      - 27018:27018
     networks:
       - ra-challenge-dev
 networks:

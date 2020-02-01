@@ -17,27 +17,19 @@ services:
     image: mcr.microsoft.com/dotnet/core/sdk:3.1
     environment:
       ASPNETCORE_Kestrel__Endpoints__Http__Url: http://*:5000
-    command: dotnet watch --project /workspace/oidc-provider/oidc-provider.csproj run
     ports:
       - 5000:5000
-    volumes:
-      - .:/workspace:cached
     depends_on:
       - db
+
 
   # API service (Java)
   api:
     image: ra-challenge-api
     build:
       context: ./api
-    environment:
-      JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
     ports:
       - 8080:8080
-      - 5005:5005
-    volumes:
-      - .:/workspace:cached
-    command: /bin/sh -c "while sleep 1000; do :; done"
     depends_on:
       - db
       - oidc-provider
@@ -49,12 +41,9 @@ services:
     build:
       context: ./webapp
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
     ports:
       - 3000:3000
-      - 9229:9229
-    volumes:
-      - .:/workspace:cached
     depends_on:
       - api
       - oidc-provider
