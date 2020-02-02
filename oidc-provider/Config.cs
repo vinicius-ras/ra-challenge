@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
@@ -32,7 +33,7 @@ namespace RaChallenge.Identity
 		/// <value>A list of <see cref="ApiResource" /> objects describing each one of the protected resources.</value>
 		public static IEnumerable<ApiResource> Apis => new List<ApiResource>
 		{
-			new ApiResource(RaChallengeApiResourceName, "Reclame Aqui - Backend Challenge API"),
+			new ApiResource(RaChallengeApiResourceName, "Reclame Aqui - Backend Challenge API", new [] { JwtClaimTypes.Role }),
 		};
 
 

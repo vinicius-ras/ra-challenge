@@ -18,13 +18,19 @@ console.log("user manager created",mgr);
 
 function App() {
   const [responseText, setResponseText] = useState("");
-  const [receivedToken, setReceivedToken] = useState("");
+  const [renderedTokens, setRenderedTokens] = useState("");
+
+
   function login() {
     mgr.signinRedirect();
   }
+
+
   function logout() {
     mgr.signoutRedirect();
   }
+
+
   async function api() {
     const usr = await mgr.getUser();
     try {
@@ -50,12 +56,32 @@ function App() {
   useEffect(() => {
     (async () => {
       const usr = await mgr.getUser();
-      if (usr)
-        setReceivedToken(usr.access_token);
+      if (usr) {
+        const tokensToRender = {
+          "Token Type": usr.token_type,
+          "Scope": usr.scope,
+          "Session": usr.session_state,
+          "Access token": usr.access_token,
+          "Identity token": usr.id_token,
+          "Profile": JSON.stringify(usr.profile, null, 4),
+        }
+
+        const rendered = Object.getOwnPropertyNames(tokensToRender).map(propName => (
+          <div key={propName} className="mt-4">
+            <label>
+              <span className="font-bold">{propName}</span>
+              <pre className="w-full whitespace-pre-wrap break-words">{tokensToRender[propName]}</pre>
+            </label>
+          </div>
+        ));
+        setRenderedTokens(rendered);
+
+      }
+
       else
-        setReceivedToken("Not logged in");
+        setRenderedTokens("Not logged in");
     })();
-  });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -66,11 +92,13 @@ function App() {
             <button type="button" className="p-2 m-4 border-2 border-blue-700 bg-blue-400 text-gray-200 rounded-lg" onClick={logout}>Logout!</button>
             <button type="button" className="p-2 m-4 border-2 border-blue-700 bg-blue-400 text-gray-200 rounded-lg" onClick={api}>WEB CALL!</button>
           </form>
-          <div className="border-2 border-gray-600 rounded-xl bg-gray-300">
-            <pre>{receivedToken}</pre>
-          </div>
-          <div className="border-2 border-blue-600 rounded-xl bg-blue-300">
-            <pre>{responseText}</pre>
+          <div className="max-w-full mx-4">
+            <div className="border-2 border-gray-600 rounded-xl bg-gray-300">
+              {renderedTokens}
+            </div>
+            <div className="border-2 border-blue-600 rounded-xl bg-blue-300 mt-5">
+              <pre>{responseText}</pre>
+            </div>
           </div>
         </Route>
         <Route path="/callback">
