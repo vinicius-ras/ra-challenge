@@ -1,5 +1,7 @@
 package br.com.viniciusras.rachallenge.complaints.model;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import org.bson.types.ObjectId;
@@ -22,11 +24,13 @@ public class Complaint {
 	@Id
 	@Getter @Setter private ObjectId id;
 	/** A title given for the complaint by the client. */
+	@NotEmpty(message = "Enter a title for your complaint.")
 	@Getter @Setter private String title;
 	/** A description given for the complaint by the client. */
+	@NotEmpty(message = "Describe your complaint.")
 	@Getter @Setter private String description;
 	/** The company against which the complaint was filed. */
-	@JsonManagedReference
+	//@JsonManagedReference
 	@DBRef(lazy = true)
 	@Getter @Setter private Company company;
 
