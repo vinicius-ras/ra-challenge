@@ -38,7 +38,7 @@ public class AllowOptionsFilter implements Filter {
         httpResponse.setHeader("Access-Control-Allow-Origin", "*");
         httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         httpResponse.setHeader("Access-Control-Max-Age", "3600");
-        httpResponse.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization");
+        httpResponse.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, content-type");
 
 		// HTTP "OPTIONS" (preflight requests) will be returning an HTTP 200 (OK) response right away,
 		// short-circuiting the filters chain.
