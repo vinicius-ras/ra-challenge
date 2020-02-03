@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  maps:
+    image: ra-challenge-maps
+    build:
+      context: ../
+    environment:
+      JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006,quiet=y
+    ports:
+      - 8081:8081
+      - 5006:5006
+    volumes:
+      - ..:/workspace/maps:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    networks:
+      - ra-challenge-dev
+networks:
+  ra-challenge-dev:
+    name: ra-challenge-dev
+    driver: bridge
