@@ -1,4 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
+@import "./Button.css";
+@import "./LoginButton.css";
+@import "./OpenLayers.css";
+
 @import "tailwindcss/utilities";

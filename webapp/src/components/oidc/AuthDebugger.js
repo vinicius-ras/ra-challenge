@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import oidcClientService from "../../services/OidcClientService";
 
 /** Component for visually debugging the OpenID Connect service, provided to the web application by

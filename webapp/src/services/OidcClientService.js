@@ -9,7 +9,7 @@ class OidcClientService {
 			client_id: "webapp",
 			redirect_uri: "http://localhost:3000/callback",
 			response_type: "code",
-			scope: "openid profile ra-api",
+			scope: "openid profile ra-api roles-information",
 			post_logout_redirect_uri: "http://localhost:3000/",
 		};
 

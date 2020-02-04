@@ -15,6 +15,10 @@ namespace RaChallenge.Identity
 		/// </summary>
 		public const string RaChallengeApiResourceName = "ra-api";
 		/// <summary>
+		///    The resource used to request for the user's roles information in his/her Identity Token.
+		/// </summary>
+		public const string RaChallengeRolesInformationIdentityResourceName = "roles-information";
+		/// <summary>
 		///    The name for the known Web Application client which will be allowed to access the OIDC/OAuth provider.
 		/// </summary>
 		public const string RaChallengeWebAppClientName = "webapp";
@@ -46,6 +50,7 @@ namespace RaChallenge.Identity
 		{
 			new IdentityResources.OpenId(),
 			new IdentityResources.Profile(),
+			new IdentityResource(RaChallengeRolesInformationIdentityResourceName, "User roles information", new [] { JwtClaimTypes.Role })
 		};
 
 
@@ -69,7 +74,8 @@ namespace RaChallenge.Identity
 					IdentityServerConstants.StandardScopes.OpenId,
 					IdentityServerConstants.StandardScopes.Profile,
 					RaChallengeApiResourceName,
-				},
+					RaChallengeRolesInformationIdentityResourceName
+				}
 			}
 		};
 	}

@@ -1,0 +1,7 @@
+button.component-login-button {
+	@apply border-green-700 bg-green-500 text-green-200 font-bold shadow-lg;
+}
+
+button.component-login-button:disabled {
+	@apply bg-gray-400 border-gray-500 text-gray-700;
+}
