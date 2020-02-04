@@ -28,10 +28,7 @@ import br.com.viniciusras.rachallenge.complaints.security.RequiresClientRole;
 @RequestMapping("/complaint")
 public class ComplaintsController {
 	// PRIVATE FIELDS
-	/**
-	 * Reference to a {@link ComplaintRepository} instance injected by the
-	 * container.
-	 */
+	/** Reference to a {@link ComplaintRepository} instance injected by the container. */
 	@Autowired
 	private ComplaintRepository _complaintRepo;
 
