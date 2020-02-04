@@ -1,5 +1,6 @@
 version: '3.7'
 services:
+  # MongoDB service
   db:
     build:
       context: ../
@@ -10,6 +11,18 @@ services:
       MONGO_INITDB_DATABASE: ra_challenge
     ports:
       - 27018:27018
+    networks:
+      - ra-challenge-dev
+
+
+  # Disposable service for seeding MongoDB with geolocation data
+  db-seeder:
+    build:
+      context: ../
+      dockerfile: Dockerfile-seeder
+      network: ra-challenge-dev
+    depends_on:
+      - db
     networks:
       - ra-challenge-dev
 networks:
