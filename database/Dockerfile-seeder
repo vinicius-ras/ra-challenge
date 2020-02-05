@@ -1,9 +1,11 @@
 FROM mongo:4.2.2
 
 COPY wait-for-it.sh /bin/wait-for-it.sh
-COPY geojson/ /docker-entrypoint-initdb.d/geojson/
+COPY seed-data/ /docker-entrypoint-initdb.d/seed-data/
 
 # Wait for the database service to fully initialize and open it's connection port, then import the necessary GeoJSON data using "mongoimport"
 CMD wait-for-it.sh db:27018 -- \
-	mongoimport --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=states --jsonArray /docker-entrypoint-initdb.d/geojson/states.json \
-	&& mongoimport --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=cities --jsonArray /docker-entrypoint-initdb.d/geojson/cities.json
+	mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=states --jsonArray /docker-entrypoint-initdb.d/seed-data/states.json \
+	&& mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=cities --jsonArray /docker-entrypoint-initdb.d/seed-data/cities.json \
+	&& mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=companies --jsonArray /docker-entrypoint-initdb.d/seed-data/companies.json \
+	;
