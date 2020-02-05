@@ -2,13 +2,9 @@ package br.com.viniciusras.rachallenge.complaints.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Comparator;
-import java.util.List;
-import java.util.function.Function;
 
 import javax.validation.Valid;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,11 +44,7 @@ public class ComplaintsController {
 	@GetMapping("{id}")
 	public ResponseEntity<Complaint> get(@PathVariable(name = "id") String id) {
 		Complaint result = null;
-		try {
-			result = _complaintRepo.findById(new ObjectId(id)).orElse(null);
-		} catch (IllegalArgumentException ex) {
-			// String could not be converted to an ObjectId. Nothing to do.
-		}
+		result = _complaintRepo.findById(id).orElse(null);
 		if (result == null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		return ResponseEntity.ok(result);
@@ -73,10 +65,12 @@ public class ComplaintsController {
 	@RequiresClientRole
 	@PostMapping
 	public ResponseEntity<Complaint> post(@Valid @RequestBody Complaint data) throws URISyntaxException {
+		// Extra validation steps
 		Complaint createdEntity = null;
-		if (data == null || data.getId() != null)
+		if (data == null || data.getId() != null || data.getCompany() == null || data.getCompany().getId() == null)
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
+		// Save the new complaint
 		createdEntity = _complaintRepo.save(data);
 		URI createdResourceLocation = new URI(String.format("/complaint/%s", createdEntity.getId()));
 		return ResponseEntity.created(createdResourceLocation).body(createdEntity);

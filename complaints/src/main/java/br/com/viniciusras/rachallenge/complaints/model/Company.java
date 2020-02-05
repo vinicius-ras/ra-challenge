@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,12 +19,16 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document("companies")
 public class Company {
 	/** Primary key of this entry in the database. */
 	@Id
-	@Getter @Setter private ObjectId id;
+	@Getter @Setter private String id;
 	/** The name of the company. */
 	@Getter @Setter private String name;
+	/** The name of the company. */
+	@Field("normalized_name")
+	@Getter @Setter private String normalizedName;
 	/** The company's CNPJ number. */
 	@Getter @Setter private String cnpj;
 	/** The complaints filed against the company. */

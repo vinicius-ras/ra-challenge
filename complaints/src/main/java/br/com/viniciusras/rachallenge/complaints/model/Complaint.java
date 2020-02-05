@@ -2,11 +2,9 @@ package br.com.viniciusras.rachallenge.complaints.model;
 
 import javax.validation.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,10 +17,11 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document("complaints")
 public class Complaint {
 	/** Primary key of this entry in the database. */
 	@Id
-	@Getter @Setter private ObjectId id;
+	@Getter @Setter private String id;
 	/** A title given for the complaint by the client. */
 	@NotEmpty(message = "Enter a title for your complaint.")
 	@Getter @Setter private String title;
