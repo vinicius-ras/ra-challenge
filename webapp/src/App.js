@@ -12,7 +12,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className="flex">
-				<div className="p-4 w-full max-w-md">
+				<div className="flex flex-col flex-shrink-0 p-4 w-full max-w-md">
 					<Link to="/">
 						<div className="text-center">
 							<div className="text-2xl mb-4">
@@ -35,8 +35,12 @@ function App() {
 					</div>
 					<div className="mt-4" />
 					<RegisterComplaintForm />
+					<div className="flex-grow" />
+					<Link to="/oidc-debug">
+						<i className="fas fa-bug text-gray-300" />
+					</Link>
 				</div>
-				<div className="bg-blue-300 h-screen flex-grow">
+				<div className="bg-blue-300 min-h-screen h-full flex-grow">
 					<Switch>
 						<Route path="/" exact={true}>
 							<MapVisualizer />

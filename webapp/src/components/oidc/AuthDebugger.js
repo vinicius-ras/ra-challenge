@@ -49,11 +49,11 @@ export default function AuthDebugger() {
 					"Profile": JSON.stringify(usr.profile, null, 4),
 				}
 
-				const rendered = Object.getOwnPropertyNames(tokensToRender).map(propName => (
-					<div key={propName} className="mt-4">
+				const rendered = Object.getOwnPropertyNames(tokensToRender).map((propName, propIndex) => (
+					<div key={propName} className={propIndex > 0 ? `mt-4` : ""}>
 						<label>
 							<span className="font-bold">{propName}</span>
-							<pre className="w-full whitespace-pre-wrap break-words">{tokensToRender[propName]}</pre>
+							<pre className="whitespace-pre-wrap break-all">{tokensToRender[propName]}</pre>
 						</label>
 					</div>
 				));
@@ -67,17 +67,17 @@ export default function AuthDebugger() {
 	}, []);
 
 	return (
-		<div>
+		<div className="p-4">
 			<form>
-				<button type="button" className="p-2 m-4 border-2 border-blue-700 bg-blue-400 text-gray-200 rounded-lg" onClick={() => oidcClientService.signinRedirect()}>Login!</button>
-				<button type="button" className="p-2 m-4 border-2 border-blue-700 bg-blue-400 text-gray-200 rounded-lg" onClick={() => oidcClientService.signoutRedirect()}>Logout!</button>
-				<button type="button" className="p-2 m-4 border-2 border-blue-700 bg-blue-400 text-gray-200 rounded-lg" onClick={performApiCall}>WEB CALL!</button>
+				<button type="button" onClick={() => oidcClientService.signinRedirect()}>Login!</button>
+				<button className="ml-4" type="button" onClick={() => oidcClientService.signoutRedirect()}>Logout!</button>
+				<button className="ml-4" type="button" onClick={performApiCall}>WEB CALL!</button>
 			</form>
-			<div className="max-w-full mx-4">
-				<div className="border-2 border-gray-600 rounded-xl bg-gray-300">
+			<div className="mt-4">
+				<div className="p-4 border-2 border-gray-600 rounded-lg bg-gray-300">
 					{renderedTokens}
 				</div>
-				<div className="border-2 border-blue-600 rounded-xl bg-blue-300 mt-5">
+				<div className="p-4 border-2 border-blue-600 rounded-lg bg-blue-300 mt-5">
 					<pre>{responseText}</pre>
 				</div>
 			</div>
