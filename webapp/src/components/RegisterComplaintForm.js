@@ -97,7 +97,7 @@ export default class RegisterComplaintForm extends React.Component {
 			error => {
 				console.error(error);
 
-				let errorMessage = "Unknown location error.";
+				let errorMessage;
 				switch(error.code) {
 					case error.PERMISSION_DENIED:
 						errorMessage = "Location permission denied by user.";
@@ -108,6 +108,8 @@ export default class RegisterComplaintForm extends React.Component {
 					case error.TIMEOUT:
 						errorMessage = "Location timeout.";
 						break;
+					default:
+						errorMessage = "Unknown location error.";
 				}
 
 				this.setState({locationErrorMessage: errorMessage});
@@ -173,6 +175,7 @@ export default class RegisterComplaintForm extends React.Component {
 				<label className="block mt-4">
 					Against company:
       				<AsyncSelect
+					  	isDisabled={busy}
 					  	onChange={selectedValue => this.setState({complaintCompany: selectedValue.value})}
 						cacheOptions
 						defaultOptions={[]}
@@ -183,12 +186,13 @@ export default class RegisterComplaintForm extends React.Component {
 					<Alert className="my-2" message={locationErrorMessage} type={AlertType.ERROR} visible={locationErrorMessage} />
 					<div className="flex w-full items-stretch">
 						<AsyncSelect className="flex-grow h-full"
+							isDisabled={busy}
 							value={complaintLocation}
 							onChange={selectedOption => this.setState({complaintLocation: selectedOption, locationErrorMessage: null})}
 							cacheOptions
 							defaultOptions={[]}
 							loadOptions={this.searchLocations} />
-						<button type="button" className="ml-2 px-2 py-0" onClick={() => this.retrieveUserPosition()}>
+						<button type="button" className="ml-2 px-2 py-0" onClick={() => this.retrieveUserPosition()} disabled={busy}>
 							<i className="fas fa-crosshairs" />
 						</button>
 					</div>

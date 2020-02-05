@@ -28,7 +28,7 @@ public class StatesSearchController {
 	 * @return Returns an HTTP OK response with an array all states. */
 	@GetMapping
 	public Iterable<State> get() {
-		return _stateRepo.findAll();
+		return _stateRepo.findAllNoGeometry();
 	}
 
 
