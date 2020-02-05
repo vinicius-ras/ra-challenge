@@ -45,7 +45,7 @@ export default function MapVisualizer() {
 			],
 			view: new View({
 				center: fromLonLat([-44.3068, -2.53073]),
-				zoom: 3,
+				zoom: 5,
 			}),
 		});
 	}, []);
@@ -58,7 +58,7 @@ export default function MapVisualizer() {
 
 	return (
 		<div className="h-screen flex flex-col">
-			<div ref={refMapDiv} className="bg-blue-300 w-full h-64 flex-grow" />
+			<div ref={refMapDiv} className="w-full h-64 flex-grow" />
 			<div>
 				<button onClick={addPointToMap}>Plus  aaa</button>
 			</div>

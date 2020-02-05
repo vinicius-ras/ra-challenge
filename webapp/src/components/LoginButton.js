@@ -34,7 +34,7 @@ export default class LoginButton extends React.Component {
 	render() {
 		const {userProfile} = this.state;
 		return (
-			<button onClick={() => this.buttonClick()} className="component-login-button" disabled={userProfile === undefined}>
+			<button onClick={() => this.buttonClick()} className={`component-login-button ${userProfile ? "logged-in" : ""}`} disabled={userProfile === undefined}>
 				<i className={`mr-2 fas ${userProfile ? "fa-sign-out-alt" : "fa-sign-in-alt"}`} />
 				{userProfile ? userProfile.name : "Login"}
 			</button>

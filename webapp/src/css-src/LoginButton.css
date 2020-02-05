@@ -2,6 +2,10 @@ button.component-login-button {
 	@apply border-green-700 bg-green-500 text-green-200 font-bold shadow-lg;
 }
 
+button.component-login-button.logged-in {
+	@apply border-red-700 bg-red-500 text-red-200;
+}
+
 button.component-login-button:disabled {
 	@apply bg-gray-400 border-gray-500 text-gray-700;
 }

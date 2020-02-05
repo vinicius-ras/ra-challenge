@@ -12,5 +12,9 @@ export default function FinishSignIn() {
 		window.location = "/";
 	})()});
 
-	return (<div>Please wait...</div>);
+	return (
+		<div className="flex justify-center items-center h-full">
+			<i className="fas fa-spin fa-cog text-6xl" />
+		</div>
+	);
 }
