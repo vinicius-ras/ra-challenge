@@ -15,22 +15,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.viniciusras.rachallenge.complaints.model.Company;
 import br.com.viniciusras.rachallenge.complaints.model.Complaint;
+import br.com.viniciusras.rachallenge.complaints.model.ComplaintLocation;
+import br.com.viniciusras.rachallenge.complaints.model.repository.CompanyRepository;
+import br.com.viniciusras.rachallenge.complaints.model.repository.ComplaintLocationRepository;
 import br.com.viniciusras.rachallenge.complaints.model.repository.ComplaintRepository;
+import br.com.viniciusras.rachallenge.complaints.model.viewmodel.ComplaintPost;
 import br.com.viniciusras.rachallenge.complaints.security.RequiresClientRole;
 
-/** Controller responsible for managing complaints filed by clients against companies. */
+/**
+ * Controller responsible for managing complaints filed by clients against
+ * companies. */
 @RestController
 @RequestMapping("/complaint")
 public class ComplaintsController {
 	// PRIVATE FIELDS
 	/** Reference to a {@link ComplaintRepository} instance injected by the container. */
-	@Autowired
-	private ComplaintRepository _complaintRepo;
-
-
-
-
+	@Autowired private ComplaintRepository _complaintRepo;
+	/** Reference to a {@link CompanyRepository} instance injected by the container. */
+	@Autowired private ComplaintLocationRepository _complaintLocationRepo;
+	/** Reference to a {@link CompanyRepository} instance injected by the container. */
+	@Autowired private CompanyRepository _companyRepo;
 
 	// PUBLIC METHODS
 	/**
@@ -50,7 +56,6 @@ public class ComplaintsController {
 		return ResponseEntity.ok(result);
 	}
 
-
 	/**
 	 * Allows clients to file {@link Complaint}s against a company.
 	 *
@@ -59,19 +64,32 @@ public class ComplaintsController {
 	 * @return Returns the appropriate HTTP Response to be sent to the client.
 	 *         Invalid request bodies will lead to an HTTP Bad Request (400) status
 	 *         code being returned. Valid
-	 * @throws URISyntaxException Thrown in case a bad URI has been generated for the created resource.
-	 *                            This is not expected to happen, and would indicate a bug in the code.
+	 * @throws URISyntaxException Thrown in case a bad URI has been generated for
+	 *                            the created resource. This is not expected to
+	 *                            happen, and would indicate a bug in the code.
 	 */
 	@RequiresClientRole
 	@PostMapping
-	public ResponseEntity<Complaint> post(@Valid @RequestBody Complaint data) throws URISyntaxException {
+	public ResponseEntity<Complaint> post(@Valid @RequestBody ComplaintPost data) throws URISyntaxException {
 		// Extra validation steps
 		Complaint createdEntity = null;
-		if (data == null || data.getId() != null || data.getCompany() == null || data.getCompany().getId() == null)
+		if (data == null || data.getComplaint().getId() != null || data.getComplaint().getCompany().getId() == null)
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
-		// Save the new complaint
-		createdEntity = _complaintRepo.save(data);
+		Company targetCompany = _companyRepo.findById(data.getComplaint().getCompany().getId()).orElse(null);
+		if (targetCompany == null)
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+
+
+		// Save the new complaint and its location
+		createdEntity = _complaintRepo.save(data.getComplaint());
+
+		ComplaintLocation complaintLocation = new ComplaintLocation();
+		complaintLocation.setCompanyId(targetCompany.getId());
+		complaintLocation.setLocation(data.getLocation());
+		_complaintLocationRepo.save(complaintLocation);
+
+		// Return an HTTP Created status code, with the right created resource location
 		URI createdResourceLocation = new URI(String.format("/complaint/%s", createdEntity.getId()));
 		return ResponseEntity.created(createdResourceLocation).body(createdEntity);
 	}

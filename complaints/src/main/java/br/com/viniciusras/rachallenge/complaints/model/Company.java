@@ -11,9 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /** Represents a company to which clients might file complaints. */
 @Data
@@ -23,16 +21,16 @@ import lombok.Setter;
 public class Company {
 	/** Primary key of this entry in the database. */
 	@Id
-	@Getter @Setter private String id;
+	private String id;
 	/** The name of the company. */
-	@Getter @Setter private String name;
+	private String name;
 	/** The name of the company. */
 	@Field("normalized_name")
-	@Getter @Setter private String normalizedName;
+	private String normalizedName;
 	/** The company's CNPJ number. */
-	@Getter @Setter private String cnpj;
+	private String cnpj;
 	/** The complaints filed against the company. */
 	@JsonBackReference
 	@DBRef(lazy = true)
-	@Getter @Setter private List<Complaint> complaints;
+	private List<Complaint> complaints;
 }
