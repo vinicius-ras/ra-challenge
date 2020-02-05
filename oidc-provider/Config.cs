@@ -10,18 +10,14 @@ namespace RaChallenge.Identity
 	{
 		// CONSTANTS
 		/// <summary>
-		///    The name for the resource which will be describing the API for the Reclame Aqui backend challenge.
+		///    The name for the resource which will be describing the Complaints API for the Reclame Aqui backend challenge.
 		///    This resource will be protected by the OIDC/OAuth provider.
 		/// </summary>
-		public const string RaChallengeApiResourceName = "ra-api";
-		/// <summary>
-		///    The resource used to request for the user's roles information in his/her Identity Token.
-		/// </summary>
-		public const string RaChallengeRolesInformationIdentityResourceName = "roles-information";
-		/// <summary>
-		///    The name for the known Web Application client which will be allowed to access the OIDC/OAuth provider.
-		/// </summary>
-		public const string RaChallengeWebAppClientName = "webapp";
+		public const string ComplaintsApiResourceName = "complaints-api";
+		/// <summary>The name of the resource used to request for the user's roles information in his/her Identity Token.</summary>
+		public const string RolesInformationIdentityResourceName = "roles-information";
+		/// <summary>The name for the known Web Application client which will be allowed to access the OIDC/OAuth provider.</summary>
+		public const string WebAppClientName = "webapp";
 		/// <summary>
 		///    The issuer's host ("iss" claim) that should appear in the OIDC/OAuth provider's discovery point.
 		///    This claim is part of the JWT tokens emitted by the provider, and thus play an important role in validating the issued tokens.
@@ -37,7 +33,7 @@ namespace RaChallenge.Identity
 		/// <value>A list of <see cref="ApiResource" /> objects describing each one of the protected resources.</value>
 		public static IEnumerable<ApiResource> Apis => new List<ApiResource>
 		{
-			new ApiResource(RaChallengeApiResourceName, "Reclame Aqui - Backend Challenge API", new [] { JwtClaimTypes.Role }),
+			new ApiResource(ComplaintsApiResourceName, "Reclame Aqui - Complaints Service API", new [] { JwtClaimTypes.Role }),
 		};
 
 
@@ -50,7 +46,7 @@ namespace RaChallenge.Identity
 		{
 			new IdentityResources.OpenId(),
 			new IdentityResources.Profile(),
-			new IdentityResource(RaChallengeRolesInformationIdentityResourceName, "User roles information", new [] { JwtClaimTypes.Role })
+			new IdentityResource(RolesInformationIdentityResourceName, "User roles information", new [] { JwtClaimTypes.Role })
 		};
 
 
@@ -73,8 +69,8 @@ namespace RaChallenge.Identity
 				{
 					IdentityServerConstants.StandardScopes.OpenId,
 					IdentityServerConstants.StandardScopes.Profile,
-					RaChallengeApiResourceName,
-					RaChallengeRolesInformationIdentityResourceName
+					ComplaintsApiResourceName,
+					RolesInformationIdentityResourceName
 				}
 			}
 		};

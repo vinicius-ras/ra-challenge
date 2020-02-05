@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
+@import "./Alert.css";
 @import "./Button.css";
 @import "./Input.css";
 @import "./LoginButton.css";
