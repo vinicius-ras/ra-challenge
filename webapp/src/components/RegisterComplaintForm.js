@@ -15,7 +15,7 @@ export default class RegisterComplaintForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			busy: false,
+			busy: true,
 			formMessage: null,
 			complaintCompany: null,
 			complaintLocation: null,
@@ -23,6 +23,27 @@ export default class RegisterComplaintForm extends React.Component {
 			complaintDescription: "",
 			locationErrorMessage: null,
 		};
+	}
+
+
+	/** Initializes the component after it has been rendered for the first time. */
+	async componentDidMount() {
+		const userProfile = await oidcClientService.getUserIdentityProfile();
+		let errorMessage = null;
+		if (userProfile == null)
+			errorMessage = "Sign in to file a complaint.";
+		else if (!userProfile.role.includes("client"))
+			errorMessage = "Company accounts cannot file complaints.";
+
+
+		if (errorMessage)
+			this.setState({
+				formMessage: <Alert type={AlertType.ERROR} message={errorMessage} />,
+			});
+		else
+			this.setState({
+				busy: false,
+			});
 	}
 
 
@@ -172,11 +193,7 @@ export default class RegisterComplaintForm extends React.Component {
 		// Displays either a success or an error message
 		this.setState({
 			busy: false,
-			formMessage: (
-				<div className={`p-2 mt-4 rounded-lg border ${errorMessage ? "bg-red-300 text-red-600 border-red-600" : "bg-green-300 text-green-600 border-green-600"}`}>
-					{errorMessage || "Complaint successfully registered."}
-				</div>
-			),
+			formMessage: <Alert type={errorMessage ? AlertType.ERROR : AlertType.SUCCESS} message={errorMessage || "Complaint successfully registered."} />,
 		});
 	}
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import LoginButton from './components/LoginButton';
 import MapVisualizer from './components/MapVisualizer';
@@ -20,6 +20,20 @@ function App() {
 	function addComplaintLocation(newComplaintLocation) {
 		setComplaintLocations([...complaintLocations, newComplaintLocation]);
 	}
+
+
+	// App initialization
+	useEffect(() => {
+		async function loadInitialData() {
+			const response = await fetch("http://localhost:8081/public/search/complaint");
+			if (response.ok) {
+				const responseData = await response.json();
+				setComplaintLocations(responseData);
+			}
+		};
+
+		loadInitialData();
+	}, []);
 
 
 	return (

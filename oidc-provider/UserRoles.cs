@@ -4,6 +4,8 @@ namespace RaChallenge.Identity
 	static class UserRoles
 	{
 		// CONSTANTS
+		/// <summary>Name of the system's generic role, inherited by all users.</summary>
+		public const string Generic = "generic";
 		/// <summary>Name of the role which represents clients that file complaints against companies.</summary>
 		public const string Client = "client";
 		/// <summary>Name of the role which represents companies, to whom clients file complaints against.</summary>

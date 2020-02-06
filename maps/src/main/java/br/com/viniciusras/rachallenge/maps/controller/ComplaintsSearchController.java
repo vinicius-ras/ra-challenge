@@ -34,6 +34,14 @@ public class ComplaintsSearchController {
 
 
 	// PUBLIC METHODS
+	/** Retrieves the collection of all registered complaints.
+	 * @return Returns a collection of all registered complaints. */
+	@GetMapping
+	public ResponseEntity<Iterable<ComplaintLocation>> getAll() {
+		return ResponseEntity.ok(_complaintLocationRepo.findAll());
+	}
+
+
 	/** Performs a search for complaint locations by cities where they have been registered.
 	 * Search criteria is specified by clients through query parameters.
 	 *
