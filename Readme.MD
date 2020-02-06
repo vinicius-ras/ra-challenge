@@ -146,16 +146,13 @@ Service characteristics:
 
 ### Service description
 
-This service provides an implementation of the OpenID Connect and OAuth 2.0 protocols, for authenticating users and authorizing API requests, respectivelly. Thus, this service is focused on emitting JWT Identity Tokens and Authentication Tokens, and also validating the emited tokens for the other services. The implementation is provided by the IdentityServer4 framework, using their default UI for the identity server.
+The Web Application built to allow clients to have access to all of the other services. The application allows users to view a map with all of the geolocalized complaints that have been registered on that map.
 
-The identity server comes preconfigured with the following test users:
+Once accessed for the first time, a login button is displayed for the users. When clicked, the user will be redirected to the OpenID Connect Provider server to perform a login. If the user is logged in, the button turns red and displays the user name, and allows the user to perform a logout if clicked again.
 
-| Login | Password | Roles   |
-|-------|----------|---------|
-| alice | alice    | company |
-| bob   | bob      | client  |
+A panel with two tabs is displayed below the login button. One tab is for searching and filtering complaint locations on the map, and the other one is to register new complaints. **Remember:** only users with the `client` role can file complaints against companies.
 
-**Important:** only users belonging to the `client` role can file complaints against companies. Thus, to test filing a complaint, you must login as `bob`.
+For a table of **test users** available in the system - as well as their login names, passwords, and respective roles - please refer to the documentation of the *OIDC Provider service*.
 
 
 
