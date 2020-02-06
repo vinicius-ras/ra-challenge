@@ -161,7 +161,7 @@ The identity server comes preconfigured with the following test users:
 
 # Running the project
 
-## Deploying with Docker Compose
+## Deploying with Docker Compose locally
 
 All of the project's services can be deployed for local tests with Docker Compose by using the `docker-compose.yml` file in the root of this repository.
 
@@ -175,6 +175,8 @@ At this point, Docker Compose will read the `docker-compose.yml` file, download 
 
 If you are executing these commands for the first time and the images have not yet been downloaded,
 **it might take a while for the whole operation to finish**.
+
+After all services are up and running, you can access the Web Application service at `http://localhost:3000/`.
 
 ## Test users
 
