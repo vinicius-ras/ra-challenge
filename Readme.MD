@@ -152,7 +152,7 @@ Once accessed for the first time, a login button is displayed for the users. Whe
 
 A panel with two tabs is displayed below the login button. One tab is for searching and filtering complaint locations on the map, and the other one is to register new complaints. **Remember:** only users with the `client` role can file complaints against companies.
 
-For a table of **test users** available in the system - as well as their login names, passwords, and respective roles - please refer to the documentation of the *OIDC Provider service*.
+For a table of **test users** available in the system - as well as their login names, passwords, and respective roles - please refer to the [documentation of the *OIDC Provider service*](https://github.com/vinicius-ras/ra-challenge#openid-connect-oidc-provider-service).
 
 
 
@@ -179,7 +179,7 @@ After all services are up and running, you can access the Web Application servic
 
 The system comes preconfigured with some **test users**.
 
-Please refer to the documentation for the *OIDC Provider Service* to find a table containing these test users, as well as their **logins and passwords**.
+Please refer to the [documentation for the *OIDC Provider Service*](https://github.com/vinicius-ras/ra-challenge#openid-connect-oidc-provider-service) to find a table containing these test users, as well as their **logins and passwords**.
 
 ## Visual Studio Code devcontainers
 
