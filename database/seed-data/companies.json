@@ -1,382 +1,78 @@
 [
-	{
-		"name": "Acme Industries",
-		"normalized_name": "ACME INDUSTRIES",
-		"cnpj": "74.161.556/0001-04"
-	},
-	{
-		"name": "Openlane",
-		"normalized_name": "OPENLANE",
-		"cnpj": "00.001.407/0001-33"
-	},
-	{
-		"name": "Yearin",
-		"normalized_name": "YEARIN",
-		"cnpj": "64.049.604/0001-05"
-	},
-	{
-		"name": "Goodsilron",
-		"normalized_name": "GOODSILRON",
-		"cnpj": "01.867.126/0001-20"
-	},
-	{
-		"name": "Condax",
-		"normalized_name": "CONDAX",
-		"cnpj": "29.835.447/0001-62"
-	},
-	{
-		"name": "Opentech",
-		"normalized_name": "OPENTECH",
-		"cnpj": "76.915.465/0001-34"
-	},
-	{
-		"name": "Golddex",
-		"normalized_name": "GOLDDEX",
-		"cnpj": "83.363.001/0001-28"
-	},
-	{
-		"name": "year-job",
-		"normalized_name": "YEAR JOB",
-		"cnpj": "79.856.332/0001-22"
-	},
-	{
-		"name": "Isdom",
-		"normalized_name": "ISDOM",
-		"cnpj": "11.273.541/0001-00"
-	},
-	{
-		"name": "Gogozoom",
-		"normalized_name": "GOGOZOOM",
-		"cnpj": "67.366.296/0001-30"
-	},
-	{
-		"name": "Y-corporation",
-		"normalized_name": "Y CORPORATION",
-		"cnpj": "50.334.214/0001-72"
-	},
-	{
-		"name": "Nam-zim",
-		"normalized_name": "NAM ZIM",
-		"cnpj": "92.600.929/0001-70"
-	},
-	{
-		"name": "Donquadtech",
-		"normalized_name": "DONQUADTECH",
-		"cnpj": "61.418.581/0001-70"
-	},
-	{
-		"name": "Warephase",
-		"normalized_name": "WAREPHASE",
-		"cnpj": "33.109.647/0001-05"
-	},
-	{
-		"name": "Donware",
-		"normalized_name": "DONWARE",
-		"cnpj": "75.365.688/0001-02"
-	},
-	{
-		"name": "Faxquote",
-		"normalized_name": "FAXQUOTE",
-		"cnpj": "94.985.976/0001-04"
-	},
-	{
-		"name": "Sunnamplex",
-		"normalized_name": "SUNNAMPLEX",
-		"cnpj": "38.563.484/0001-50"
-	},
-	{
-		"name": "Lexiqvolax",
-		"normalized_name": "LEXIQVOLAX",
-		"cnpj": "26.692.809/0001-15"
-	},
-	{
-		"name": "Sumace",
-		"normalized_name": "SUMACE",
-		"cnpj": "16.753.681/0001-07"
-	},
-	{
-		"name": "Treequote",
-		"normalized_name": "TREEQUOTE",
-		"cnpj": "16.263.696/0001-89"
-	},
-	{
-		"name": "Iselectrics",
-		"normalized_name": "ISELECTRICS",
-		"cnpj": "78.258.692/0001-60"
-	},
-	{
-		"name": "Zencorporation",
-		"normalized_name": "ZENCORPORATION",
-		"cnpj": "99.901.846/0001-60"
-	},
-	{
-		"name": "Plusstrip",
-		"normalized_name": "PLUSSTRIP",
-		"cnpj": "57.396.712/0001-99"
-	},
-	{
-		"name": "dambase",
-		"normalized_name": "DAMBASE",
-		"cnpj": "04.642.099/0001-86"
-	},
-	{
-		"name": "Toughzap",
-		"normalized_name": "TOUGHZAP",
-		"cnpj": "71.940.958/0001-00"
-	},
-	{
-		"name": "Codehow",
-		"normalized_name": "CODEHOW",
-		"cnpj": "05.483.260/0001-89"
-	},
-	{
-		"name": "Zotware",
-		"normalized_name": "ZOTWARE",
-		"cnpj": "86.812.384/0001-62"
-	},
-	{
-		"name": "Statholdings",
-		"normalized_name": "STATHOLDINGS",
-		"cnpj": "42.963.719/0001-78"
-	},
-	{
-		"name": "Conecom",
-		"normalized_name": "CONECOM",
-		"cnpj": "06.517.199/0001-06"
-	},
-	{
-		"name": "Zathunicon",
-		"normalized_name": "ZATHUNICON",
-		"cnpj": "01.563.046/0001-81"
-	},
-	{
-		"name": "Labdrill",
-		"normalized_name": "LABDRILL",
-		"cnpj": "57.094.985/0001-89"
-	},
-	{
-		"name": "Ron-tech",
-		"normalized_name": "RON TECH",
-		"cnpj": "92.152.320/0001-85"
-	},
-	{
-		"name": "Green-Plus",
-		"normalized_name": "GREEN PLUS",
-		"cnpj": "55.237.298/0001-40"
-	},
-	{
-		"name": "Groovestreet",
-		"normalized_name": "GROOVESTREET",
-		"cnpj": "34.284.477/0001-68"
-	},
-	{
-		"name": "Zoomit",
-		"normalized_name": "ZOOMIT",
-		"cnpj": "14.235.875/0001-87"
-	},
-	{
-		"name": "Bioplex",
-		"normalized_name": "BIOPLEX",
-		"cnpj": "16.367.973/0001-01"
-	},
-	{
-		"name": "Zumgoity",
-		"normalized_name": "ZUMGOITY",
-		"cnpj": "65.318.851/0001-22"
-	},
-	{
-		"name": "Scotfind",
-		"normalized_name": "SCOTFIND",
-		"cnpj": "33.727.110/0001-09"
-	},
-	{
-		"name": "Dalttechnology",
-		"normalized_name": "DALTTECHNOLOGY",
-		"cnpj": "42.021.798/0001-06"
-	},
-	{
-		"name": "Kinnamplus",
-		"normalized_name": "KINNAMPLUS",
-		"cnpj": "94.428.329/0001-00"
-	},
-	{
-		"name": "Konex",
-		"normalized_name": "KONEX",
-		"cnpj": "29.087.110/0001-14"
-	},
-	{
-		"name": "Stanredtax",
-		"normalized_name": "STANREDTAX",
-		"cnpj": "67.777.189/0001-02"
-	},
-	{
-		"name": "Cancity",
-		"normalized_name": "CANCITY",
-		"cnpj": "66.974.943/0001-23"
-	},
-	{
-		"name": "Finhigh",
-		"normalized_name": "FINHIGH",
-		"cnpj": "10.367.552/0001-96"
-	},
-	{
-		"name": "Kan-code",
-		"normalized_name": "KAN CODE",
-		"cnpj": "69.448.265/0001-53"
-	},
-	{
-		"name": "Blackzim",
-		"normalized_name": "BLACKZIM",
-		"cnpj": "29.575.542/0001-74"
-	},
-	{
-		"name": "Dontechi",
-		"normalized_name": "DONTECHI",
-		"cnpj": "94.023.091/0001-24"
-	},
-	{
-		"name": "Xx-zobam",
-		"normalized_name": "XX ZOBAM",
-		"cnpj": "98.199.947/0001-78"
-	},
-	{
-		"name": "Fasehatice",
-		"normalized_name": "FASEHATICE",
-		"cnpj": "28.028.711/0001-93"
-	},
-	{
-		"name": "Hatfan",
-		"normalized_name": "HATFAN",
-		"cnpj": "52.001.517/0001-07"
-	},
-	{
-		"name": "Streethex",
-		"normalized_name": "STREETHEX",
-		"cnpj": "06.086.682/0001-83"
-	},
-	{
-		"name": "Inity",
-		"normalized_name": "INITY",
-		"cnpj": "66.424.130/0001-60"
-	},
-	{
-		"name": "Konmatfix",
-		"normalized_name": "KONMATFIX",
-		"cnpj": "72.869.360/0001-35"
-	},
-	{
-		"name": "Bioholding",
-		"normalized_name": "BIOHOLDING",
-		"cnpj": "63.761.855/0001-55"
-	},
-	{
-		"name": "Hottechi",
-		"normalized_name": "HOTTECHI",
-		"cnpj": "21.712.562/0001-38"
-	},
-	{
-		"name": "Ganjaflex",
-		"normalized_name": "GANJAFLEX",
-		"cnpj": "93.661.068/0001-00"
-	},
-	{
-		"name": "Betatech",
-		"normalized_name": "BETATECH",
-		"cnpj": "96.364.598/0001-77"
-	},
-	{
-		"name": "Domzoom",
-		"normalized_name": "DOMZOOM",
-		"cnpj": "78.096.613/0001-61"
-	},
-	{
-		"name": "Ontomedia",
-		"normalized_name": "ONTOMEDIA",
-		"cnpj": "97.362.106/0001-77"
-	},
-	{
-		"name": "Newex",
-		"normalized_name": "NEWEX",
-		"cnpj": "15.025.485/0001-45"
-	},
-	{
-		"name": "Betasoloin",
-		"normalized_name": "BETASOLOIN",
-		"cnpj": "40.379.627/0001-10"
-	},
-	{
-		"name": "Mathtouch",
-		"normalized_name": "MATHTOUCH",
-		"cnpj": "43.558.774/0001-45"
-	},
-	{
-		"name": "Rantouch",
-		"normalized_name": "RANTOUCH",
-		"cnpj": "65.929.750/0001-98"
-	},
-	{
-		"name": "Silis",
-		"normalized_name": "SILIS",
-		"cnpj": "08.441.690/0001-26"
-	},
-	{
-		"name": "Plussunin",
-		"normalized_name": "PLUSSUNIN",
-		"cnpj": "91.433.801/0001-04"
-	},
-	{
-		"name": "Plexzap",
-		"normalized_name": "PLEXZAP",
-		"cnpj": "49.998.342/0001-31"
-	},
-	{
-		"name": "Finjob",
-		"normalized_name": "FINJOB",
-		"cnpj": "50.042.500/0001-64"
-	},
-	{
-		"name": "Xx-holding",
-		"normalized_name": "XX HOLDING",
-		"cnpj": "34.034.249/0001-30"
-	},
-	{
-		"name": "Scottech",
-		"normalized_name": "SCOTTECH",
-		"cnpj": "81.770.554/0001-70"
-	},
-	{
-		"name": "Funholding",
-		"normalized_name": "FUNHOLDING",
-		"cnpj": "52.264.422/0001-78"
-	},
-	{
-		"name": "Sonron",
-		"normalized_name": "SONRON",
-		"cnpj": "06.795.426/0001-65"
-	},
-	{
-		"name": "Singletechno",
-		"normalized_name": "SINGLETECHNO",
-		"cnpj": "42.083.515/0001-42"
-	},
-	{
-		"name": "Rangreen",
-		"normalized_name": "RANGREEN",
-		"cnpj": "01.730.443/0001-09"
-	},
-	{
-		"name": "J-Texon",
-		"normalized_name": "J TEXON",
-		"cnpj": "30.211.282/0001-37"
-	},
-	{
-		"name": "Rundofase",
-		"normalized_name": "RUNDOFASE",
-		"cnpj": "84.000.861/0001-60"
-	},
-	{
-		"name": "Doncon",
-		"normalized_name": "DONCON",
-		"cnpj": "89.662.478/0001-90"
-	}
+	{"_id":{"$oid":"5e3c42317e3832667943e46d"},   "name":"Openlane",          "normalized_name":"OPENLANE",          "cnpj":"00.001.407/0001-33"},
+	{"_id":{"$oid":"5e3c42317e3832667943e46e"},   "name":"Acme Industries",   "normalized_name":"ACME INDUSTRIES",   "cnpj":"74.161.556/0001-04"},
+	{"_id":{"$oid":"5e3c42317e3832667943e46f"},   "name":"Yearin",            "normalized_name":"YEARIN",            "cnpj":"64.049.604/0001-05"},
+	{"_id":{"$oid":"5e3c42317e3832667943e470"},   "name":"Goodsilron",        "normalized_name":"GOODSILRON",        "cnpj":"01.867.126/0001-20"},
+	{"_id":{"$oid":"5e3c42317e3832667943e471"},   "name":"Condax",            "normalized_name":"CONDAX",            "cnpj":"29.835.447/0001-62"},
+	{"_id":{"$oid":"5e3c42317e3832667943e472"},   "name":"Opentech",          "normalized_name":"OPENTECH",          "cnpj":"76.915.465/0001-34"},
+	{"_id":{"$oid":"5e3c42317e3832667943e473"},   "name":"year-job",          "normalized_name":"YEAR JOB",          "cnpj":"79.856.332/0001-22"},
+	{"_id":{"$oid":"5e3c42317e3832667943e474"},   "name":"Gogozoom",          "normalized_name":"GOGOZOOM",          "cnpj":"67.366.296/0001-30"},
+	{"_id":{"$oid":"5e3c42317e3832667943e475"},   "name":"Nam-zim",           "normalized_name":"NAM ZIM",           "cnpj":"92.600.929/0001-70"},
+	{"_id":{"$oid":"5e3c42317e3832667943e476"},   "name":"Y-corporation",     "normalized_name":"Y CORPORATION",     "cnpj":"50.334.214/0001-72"},
+	{"_id":{"$oid":"5e3c42317e3832667943e477"},   "name":"Donquadtech",       "normalized_name":"DONQUADTECH",       "cnpj":"61.418.581/0001-70"},
+	{"_id":{"$oid":"5e3c42317e3832667943e478"},   "name":"Warephase",         "normalized_name":"WAREPHASE",         "cnpj":"33.109.647/0001-05"},
+	{"_id":{"$oid":"5e3c42317e3832667943e479"},   "name":"Donware",           "normalized_name":"DONWARE",           "cnpj":"75.365.688/0001-02"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47a"},   "name":"Sunnamplex",        "normalized_name":"SUNNAMPLEX",        "cnpj":"38.563.484/0001-50"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47b"},   "name":"Faxquote",          "normalized_name":"FAXQUOTE",          "cnpj":"94.985.976/0001-04"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47c"},   "name":"Sumace",            "normalized_name":"SUMACE",            "cnpj":"16.753.681/0001-07"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47d"},   "name":"Lexiqvolax",        "normalized_name":"LEXIQVOLAX",        "cnpj":"26.692.809/0001-15"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47e"},   "name":"Iselectrics",       "normalized_name":"ISELECTRICS",       "cnpj":"78.258.692/0001-60"},
+	{"_id":{"$oid":"5e3c42317e3832667943e47f"},   "name":"Treequote",         "normalized_name":"TREEQUOTE",         "cnpj":"16.263.696/0001-89"},
+	{"_id":{"$oid":"5e3c42317e3832667943e480"},   "name":"Zencorporation",    "normalized_name":"ZENCORPORATION",    "cnpj":"99.901.846/0001-60"},
+	{"_id":{"$oid":"5e3c42317e3832667943e481"},   "name":"Golddex",           "normalized_name":"GOLDDEX",           "cnpj":"83.363.001/0001-28"},
+	{"_id":{"$oid":"5e3c42317e3832667943e482"},   "name":"Toughzap",          "normalized_name":"TOUGHZAP",          "cnpj":"71.940.958/0001-00"},
+	{"_id":{"$oid":"5e3c42317e3832667943e483"},   "name":"Codehow",           "normalized_name":"CODEHOW",           "cnpj":"05.483.260/0001-89"},
+	{"_id":{"$oid":"5e3c42317e3832667943e484"},   "name":"dambase",           "normalized_name":"DAMBASE",           "cnpj":"04.642.099/0001-86"},
+	{"_id":{"$oid":"5e3c42317e3832667943e485"},   "name":"Zotware",           "normalized_name":"ZOTWARE",           "cnpj":"86.812.384/0001-62"},
+	{"_id":{"$oid":"5e3c42317e3832667943e486"},   "name":"Isdom",             "normalized_name":"ISDOM",             "cnpj":"11.273.541/0001-00"},
+	{"_id":{"$oid":"5e3c42317e3832667943e487"},   "name":"Statholdings",      "normalized_name":"STATHOLDINGS",      "cnpj":"42.963.719/0001-78"},
+	{"_id":{"$oid":"5e3c42317e3832667943e488"},   "name":"Conecom",           "normalized_name":"CONECOM",           "cnpj":"06.517.199/0001-06"},
+	{"_id":{"$oid":"5e3c42317e3832667943e489"},   "name":"Zathunicon",        "normalized_name":"ZATHUNICON",        "cnpj":"01.563.046/0001-81"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48a"},   "name":"Labdrill",          "normalized_name":"LABDRILL",          "cnpj":"57.094.985/0001-89"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48b"},   "name":"Ron-tech",          "normalized_name":"RON TECH",          "cnpj":"92.152.320/0001-85"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48c"},   "name":"Plusstrip",         "normalized_name":"PLUSSTRIP",         "cnpj":"57.396.712/0001-99"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48d"},   "name":"Bioplex",           "normalized_name":"BIOPLEX",           "cnpj":"16.367.973/0001-01"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48e"},   "name":"Zumgoity",          "normalized_name":"ZUMGOITY",          "cnpj":"65.318.851/0001-22"},
+	{"_id":{"$oid":"5e3c42317e3832667943e48f"},   "name":"Scotfind",          "normalized_name":"SCOTFIND",          "cnpj":"33.727.110/0001-09"},
+	{"_id":{"$oid":"5e3c42317e3832667943e490"},   "name":"Dalttechnology",    "normalized_name":"DALTTECHNOLOGY",    "cnpj":"42.021.798/0001-06"},
+	{"_id":{"$oid":"5e3c42317e3832667943e491"},   "name":"Kinnamplus",        "normalized_name":"KINNAMPLUS",        "cnpj":"94.428.329/0001-00"},
+	{"_id":{"$oid":"5e3c42317e3832667943e492"},   "name":"Konex",             "normalized_name":"KONEX",             "cnpj":"29.087.110/0001-14"},
+	{"_id":{"$oid":"5e3c42317e3832667943e493"},   "name":"Groovestreet",      "normalized_name":"GROOVESTREET",      "cnpj":"34.284.477/0001-68"},
+	{"_id":{"$oid":"5e3c42317e3832667943e494"},   "name":"Stanredtax",        "normalized_name":"STANREDTAX",        "cnpj":"67.777.189/0001-02"},
+	{"_id":{"$oid":"5e3c42317e3832667943e495"},   "name":"Cancity",           "normalized_name":"CANCITY",           "cnpj":"66.974.943/0001-23"},
+	{"_id":{"$oid":"5e3c42317e3832667943e496"},   "name":"Finhigh",           "normalized_name":"FINHIGH",           "cnpj":"10.367.552/0001-96"},
+	{"_id":{"$oid":"5e3c42317e3832667943e497"},   "name":"Kan-code",          "normalized_name":"KAN CODE",          "cnpj":"69.448.265/0001-53"},
+	{"_id":{"$oid":"5e3c42317e3832667943e498"},   "name":"Blackzim",          "normalized_name":"BLACKZIM",          "cnpj":"29.575.542/0001-74"},
+	{"_id":{"$oid":"5e3c42317e3832667943e499"},   "name":"Dontechi",          "normalized_name":"DONTECHI",          "cnpj":"94.023.091/0001-24"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49a"},   "name":"Zoomit",            "normalized_name":"ZOOMIT",            "cnpj":"14.235.875/0001-87"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49b"},   "name":"Hatfan",            "normalized_name":"HATFAN",            "cnpj":"52.001.517/0001-07"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49c"},   "name":"Streethex",         "normalized_name":"STREETHEX",         "cnpj":"06.086.682/0001-83"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49d"},   "name":"Xx-zobam",          "normalized_name":"XX ZOBAM",          "cnpj":"98.199.947/0001-78"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49e"},   "name":"Inity",             "normalized_name":"INITY",             "cnpj":"66.424.130/0001-60"},
+	{"_id":{"$oid":"5e3c42317e3832667943e49f"},   "name":"Konmatfix",         "normalized_name":"KONMATFIX",         "cnpj":"72.869.360/0001-35"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a0"},   "name":"Bioholding",        "normalized_name":"BIOHOLDING",        "cnpj":"63.761.855/0001-55"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a1"},   "name":"Hottechi",          "normalized_name":"HOTTECHI",          "cnpj":"21.712.562/0001-38"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a2"},   "name":"Fasehatice",        "normalized_name":"FASEHATICE",        "cnpj":"28.028.711/0001-93"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a3"},   "name":"Green-Plus",        "normalized_name":"GREEN PLUS",        "cnpj":"55.237.298/0001-40"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a4"},   "name":"Ontomedia",         "normalized_name":"ONTOMEDIA",         "cnpj":"97.362.106/0001-77"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a5"},   "name":"Newex",             "normalized_name":"NEWEX",             "cnpj":"15.025.485/0001-45"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a6"},   "name":"Betasoloin",        "normalized_name":"BETASOLOIN",        "cnpj":"40.379.627/0001-10"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a7"},   "name":"Mathtouch",         "normalized_name":"MATHTOUCH",         "cnpj":"43.558.774/0001-45"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a8"},   "name":"Rantouch",          "normalized_name":"RANTOUCH",          "cnpj":"65.929.750/0001-98"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4a9"},   "name":"Silis",             "normalized_name":"SILIS",             "cnpj":"08.441.690/0001-26"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4aa"},   "name":"Betatech",          "normalized_name":"BETATECH",          "cnpj":"96.364.598/0001-77"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4ab"},   "name":"Plussunin",         "normalized_name":"PLUSSUNIN",         "cnpj":"91.433.801/0001-04"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4ac"},   "name":"Plexzap",           "normalized_name":"PLEXZAP",           "cnpj":"49.998.342/0001-31"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4ad"},   "name":"Finjob",            "normalized_name":"FINJOB",            "cnpj":"50.042.500/0001-64"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4ae"},   "name":"Xx-holding",        "normalized_name":"XX HOLDING",        "cnpj":"34.034.249/0001-30"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4af"},   "name":"Scottech",          "normalized_name":"SCOTTECH",          "cnpj":"81.770.554/0001-70"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b0"},   "name":"Funholding",        "normalized_name":"FUNHOLDING",        "cnpj":"52.264.422/0001-78"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b1"},   "name":"Domzoom",           "normalized_name":"DOMZOOM",           "cnpj":"78.096.613/0001-61"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b2"},   "name":"Ganjaflex",         "normalized_name":"GANJAFLEX",         "cnpj":"93.661.068/0001-00"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b3"},   "name":"Singletechno",      "normalized_name":"SINGLETECHNO",      "cnpj":"42.083.515/0001-42"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b4"},   "name":"J-Texon",           "normalized_name":"J TEXON",           "cnpj":"30.211.282/0001-37"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b5"},   "name":"Rundofase",         "normalized_name":"RUNDOFASE",         "cnpj":"84.000.861/0001-60"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b6"},   "name":"Doncon",            "normalized_name":"DONCON",            "cnpj":"89.662.478/0001-90"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b7"},   "name":"Sonron",            "normalized_name":"SONRON",            "cnpj":"06.795.426/0001-65"},
+	{"_id":{"$oid":"5e3c42317e3832667943e4b8"},   "name":"Rangreen",          "normalized_name":"RANGREEN",          "cnpj":"01.730.443/0001-09"}
 ]

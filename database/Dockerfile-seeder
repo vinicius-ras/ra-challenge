@@ -8,4 +8,5 @@ CMD wait-for-it.sh db:27018 -- \
 	mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=states --jsonArray /docker-entrypoint-initdb.d/seed-data/states.json \
 	&& mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=cities --jsonArray /docker-entrypoint-initdb.d/seed-data/cities.json \
 	&& mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=companies --jsonArray /docker-entrypoint-initdb.d/seed-data/companies.json \
+	&& mongoimport --drop --host=db --port=27018 --username=maps_service --password=maps123 --db=ra_challenge --collection=complaint_locations --jsonArray /docker-entrypoint-initdb.d/seed-data/complaint_locations.json \
 	;

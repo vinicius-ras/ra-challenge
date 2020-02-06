@@ -35,9 +35,15 @@ public class ComplaintsSearchController {
 
 	// PUBLIC METHODS
 	/** Retrieves the collection of all registered complaints.
+	 * @param companyId Optional company identifier, used to filter complaints by the company they
+	 *                  have been filed against.
 	 * @return Returns a collection of all registered complaints. */
 	@GetMapping
-	public ResponseEntity<Iterable<ComplaintLocation>> getAll() {
+	public ResponseEntity<Iterable<ComplaintLocation>> getAll(
+		@RequestParam(name = "company", required = false) String companyId
+	) {
+		if (companyId != null)
+			return ResponseEntity.ok(_complaintLocationRepo.findAllByCompanyId(companyId));
 		return ResponseEntity.ok(_complaintLocationRepo.findAll());
 	}
 

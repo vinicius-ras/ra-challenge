@@ -23,15 +23,16 @@ export default class ComplaintsSearch extends React.Component {
 			cities: [],
 			selectedCity: null,
 			selectedCompany: null,
+			isAuthenticated: false,
 		};
 	}
 
 
 	/** Initializes the component, after it has been rendered for the first time. */
 	async componentDidMount() {
+		// Load states data
 		try
 		{
-			// Load states data
 			const response = await fetch("http://localhost:8081/public/search/state");
 			if (response.ok) {
 				const statesArray = await response.json();
@@ -49,6 +50,16 @@ export default class ComplaintsSearch extends React.Component {
 			console.error(err);
 		}
 
+		// Verify if the user is logged in
+		try
+		{
+			const isAuthenticated = await oidcClientService.isAuthenticated();
+			this.setState({isAuthenticated})
+		} catch (err) {
+			console.error(err);
+		}
+
+		// End of initialization
 		this.setState({busy: false});
 	}
 
@@ -119,7 +130,7 @@ export default class ComplaintsSearch extends React.Component {
 		else if (selectedStateAbbreviation)
 			targetApiUrl = new URL(`http://localhost:8081/public/search/complaint/by-state/${selectedStateAbbreviation}`);
 		else
-			throw new Error("Unsupported search type (only search by city or by state are currently available)");
+			targetApiUrl = new URL(`http://localhost:8081/public/search/complaint`);
 
 		if (selectedCompanyId)
 			targetApiUrl.searchParams.append("company", selectedCompanyId);
@@ -135,16 +146,12 @@ export default class ComplaintsSearch extends React.Component {
 
 	/** Renders the component. */
 	render() {
-		const {busy, states, selectedState, cities, selectedCity, selectedCompany} = this.state;
+		const {busy, states, selectedState, cities, selectedCity, selectedCompany, isAuthenticated} = this.state;
 		const {isVisible} = this.props;
 
 		if (!isVisible)
 			return <div />;
 
-		const selectedStateAbbreviation = !selectedState ? null : selectedState.value;
-		const selectedCityIbge = !selectedCity ? null : selectedCity.value;
-
-		const submitDisabled = !selectedStateAbbreviation && !selectedCityIbge;
 		return (
 			<form>
 				<label className="block">
@@ -163,24 +170,27 @@ export default class ComplaintsSearch extends React.Component {
 							onChange={newCity => this.setState({selectedCity: newCity})} />
 					</div>
 				</label>
-				<label className="block mt-4">
-					Company:
-					<div className="flex">
-						<AsyncSelect
-							className="flex-grow"
-							isDisabled={busy}
-							value={selectedCompany}
-							onChange={selectedValue => this.setState({selectedCompany: selectedValue})}
-							cacheOptions
-							defaultOptions={[]}
-							loadOptions={this.searchCompanies} />
-						<button type="button" className="px-2 py-1 ml-2" title="Clear search" onClick={() => this.setState({selectedCompany: null})}>
-							<i className="fas fa-times-circle" />
-						</button>
-					</div>
-				</label>
+				{
+					isAuthenticated &&
+					<label className="block mt-4">
+						Company:
+						<div className="flex">
+							<AsyncSelect
+								className="flex-grow"
+								isDisabled={busy}
+								value={selectedCompany}
+								onChange={selectedValue => this.setState({selectedCompany: selectedValue})}
+								cacheOptions
+								defaultOptions={[]}
+								loadOptions={this.searchCompanies} />
+							<button type="button" className="px-2 py-1 ml-2" title="Clear search field" onClick={() => this.setState({selectedCompany: null})}>
+								<i className="fas fa-times-circle" />
+							</button>
+						</div>
+					</label>
+				}
 				<div className="flex justify-end mt-2">
-					<button type="button" disabled={busy || submitDisabled} onClick={() => this.searchClicked()}>
+					<button type="button" disabled={busy} onClick={() => this.searchClicked()}>
 						<i className={`mr-2 fas ${busy ? "fa-circle-notch fa-spin" : "fa-search"}`} />
 						Search
 					</button>

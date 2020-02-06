@@ -8,6 +8,7 @@ import br.com.viniciusras.rachallenge.maps.model.ComplaintLocation;
 
 /** Spring Data's CRUD Repository for accessing {@link ComplaintLocation} objects. */
 public interface ComplaintLocationRepository extends CrudRepository<ComplaintLocation, String> {
+	Iterable<ComplaintLocation> findAllByCompanyId(String companyId);
 	@Query("{'company_id': '?#{[0]}', 'location': { $geoIntersects: { $geometry: ?#{[1]} } } }")
 	Iterable<ComplaintLocation> findAllByCompanyAndLocationGeoIntersects(String companyId, GeoJson<?> geoJsonObject);
 	@Query("{'location': { $geoIntersects: { $geometry: ?#{[0]} } } }")
