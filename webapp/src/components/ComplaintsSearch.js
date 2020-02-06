@@ -6,6 +6,12 @@ import oidcClientService from "../services/OidcClientService";
 
 /** Controls for performing a search for complaints. */
 export default class ComplaintsSearch extends React.Component {
+	/** Default props values used by this component. */
+	static defaultProps = {
+		isVisible: true,
+	}
+
+
 	/** Constructor. */
 	constructor(props) {
 		super(props);
@@ -40,7 +46,7 @@ export default class ComplaintsSearch extends React.Component {
 				this.setState({states: statesOptions, selectedState: statesOptions[0]});
 			}
 		} catch (err) {
-			console.error.log(err);
+			console.error(err);
 		}
 
 		this.setState({busy: false});
@@ -130,15 +136,18 @@ export default class ComplaintsSearch extends React.Component {
 	/** Renders the component. */
 	render() {
 		const {busy, states, selectedState, cities, selectedCity, selectedCompany} = this.state;
+		const {isVisible} = this.props;
+
+		if (!isVisible)
+			return <div />;
 
 		const selectedStateAbbreviation = !selectedState ? null : selectedState.value;
 		const selectedCityIbge = !selectedCity ? null : selectedCity.value;
 
 		const submitDisabled = !selectedStateAbbreviation && !selectedCityIbge;
 		return (
-			<form className="bg-gray-300 border-gray-700 rounded-lg w-full max-w-xl px-4 py-2">
-				<h1 className="text-xl font-bold">Complaints map</h1>
-				<label className="block mt-4">
+			<form>
+				<label className="block">
 					State:
       				<Select isDisabled={busy}
 						options={states}

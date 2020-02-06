@@ -1,49 +1,56 @@
 version: "3.7"
 services:
-  # Database service (MongoDB)
+  # MongoDB service
   db:
+    build:
+      context: database/
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: abc123
       MONGO_INITDB_DATABASE: ra_challenge
-    build:
-      context: ./database
     ports:
       - 27018:27018
 
 
-  # OpenID Connect + OAuth 2.0 provider (.NET / IdentityServer4)
+  # Disposable service for seeding MongoDB with geolocation data
+  db-seeder:
+    build:
+      context: database/
+      dockerfile: Dockerfile-seeder
+    depends_on:
+      - db
+
+
+  # OpenID Connect provider service
   oidc-provider:
-    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    build:
+      context: oidc-provider/
+      dockerfile: Dockerfile-bak
     environment:
       ASPNETCORE_Kestrel__Endpoints__Http__Url: http://*:5000
     ports:
       - 5000:5000
-    depends_on:
-      - db
 
 
-  # API service (Java)
-  api:
-    image: ra-challenge-api
-    build:
-      context: ./api
-    ports:
-      - 8080:8080
-    depends_on:
-      - db
-      - oidc-provider
-
-
-  # Web app service (ReactJS)
+  # Web application service
   webapp:
-    image: ra-challenge-webapp
     build:
-      context: ./webapp
-    environment:
-      NODE_ENV: production
+      context: webapp/
     ports:
       - 3000:3000
-    depends_on:
-      - api
-      - oidc-provider
+
+
+  # Complaints API service
+  complaints:
+    build:
+      context: complaints/
+    ports:
+      - 8080:8080
+
+
+  # Complaints API service
+  maps:
+    build:
+      context: maps/
+    ports:
+      - 8081:8081

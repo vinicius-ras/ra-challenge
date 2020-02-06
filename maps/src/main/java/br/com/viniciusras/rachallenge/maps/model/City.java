@@ -30,6 +30,8 @@ public class City {
 	private String normalizedName;
 	/** The state to which the city belongs. */
 	private String state;
+	/** The actual GeoJSON object representing the central point of the city. */
+	private GeoJson<?> center;
 	/** The actual GeoJSON object representing the geometry of the city. */
 	private GeoJson<?> geometry;
 }

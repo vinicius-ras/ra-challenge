@@ -5,6 +5,12 @@ import Alert, { AlertType } from "./Alert";
 
 /** A form for the users to fill and register complaints against a company. */
 export default class RegisterComplaintForm extends React.Component {
+	/** Default props values used by this component. */
+	static defaultProps = {
+		isVisible: true,
+	}
+
+
 	/** Constructor. */
 	constructor(props) {
 		super(props);
@@ -65,7 +71,7 @@ export default class RegisterComplaintForm extends React.Component {
 					label: `${opt.name} / ${opt.state}`,
 					value: {
 						id: opt.id,
-						coordinates: [12, 34]
+						coordinates: opt.center.coordinates,
 					}
 				}));
 			}
@@ -124,6 +130,8 @@ export default class RegisterComplaintForm extends React.Component {
 		this.setState({busy: true});
 
 		const { complaintCompany, complaintLocation, complaintTitle, complaintDescription } = this.state;
+		const { addLocationFunction } = this.props;
+
 		const dataToSend = {
 			complaint: {
 				title: complaintTitle,
@@ -144,7 +152,17 @@ export default class RegisterComplaintForm extends React.Component {
 				method: "post",
 				body: JSON.stringify(dataToSend),
 			});
-			if (!response.ok)
+			if (response.ok) {
+
+				addLocationFunction({
+					companyId: complaintCompany,
+					location: {
+						type: "Point",
+						coordinates: complaintLocation.value.coordinates,
+					}
+				});
+			}
+			else
 				errorMessage = `Error in submission. (code: ${response.status})`;
 		} catch(err) {
 			console.error(err);
@@ -166,13 +184,16 @@ export default class RegisterComplaintForm extends React.Component {
 	/** Renders the component. */
 	render() {
 		const { busy, complaintCompany, complaintLocation, complaintTitle, complaintDescription, formMessage, locationErrorMessage } = this.state;
-		const submitDisabled = (busy || !complaintCompany || !complaintLocation || !complaintTitle || !complaintDescription );
+		const {isVisible} = this.props;
 
+		if (!isVisible)
+			return <div />;
+
+		const submitDisabled = (busy || !complaintCompany || !complaintLocation || !complaintTitle || !complaintDescription );
 		return (
-			<form className="bg-gray-300 border-gray-700 rounded-lg w-full max-w-xl px-4 py-2">
-				<h1 className="text-xl font-bold">Register complaint</h1>
+			<form>
 				{formMessage}
-				<label className="block mt-4">
+				<label className="block">
 					Against company:
       				<AsyncSelect
 					  	isDisabled={busy}

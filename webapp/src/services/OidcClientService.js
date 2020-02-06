@@ -11,6 +11,7 @@ class OidcClientService {
 			response_type: "code",
 			scope: "openid profile complaints-api roles-information",
 			post_logout_redirect_uri: "http://localhost:3000/",
+			automaticSilentRenew: true,
 		};
 
 		this.userManager = new Oidc.UserManager(oauth2ClientConfig);
